@@ -1,0 +1,205 @@
+@mixin opacity($opacity: 0.5){
+  -webkit-opacity: $opacity;
+  -moz-opacity: $opacity;
+  opacity: $opacity;
+}
+
+@mixin border-radius($r: 1px) {
+  -webkit-border-radius: $r;
+  -moz-border-radius: $r;
+  border-radius: $r;
+}
+
+@mixin gradient($deg, $from: $black, $to: $white) {
+  background-color: $from;
+  background-image: -webkit-gradient(linear, left left, left right, from($from), to($to));
+  background-image: -webkit-linear-gradient($deg, $from, $to);
+  background-image: -moz-linear-gradient($deg, $from, $to);
+  background-image: -o-linear-gradient($deg, $from, $to);
+  background-image: linear-gradient($deg, $from, $to);
+}
+
+// Внутреняя тень
+@mixin box-shadow-in($x: 0, $y: 0, $blur: 2px, $color: rgba(0, 0, 0, .8)){
+  -webkit-box-shadow: inset $x $y $blur $color;
+  box-shadow: inset $x $y $blur $color;
+}
+// Внешняя тень
+@mixin box-shadow($x: 0, $y: 0, $blur: 2px, $color: rgba(0, 0, 0, .8)){
+  -webkit-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin text-shadow($x: 0, $y: 0, $blur: 2px, $color: rgba(0, 0, 0, .8)) {
+  -webkit-text-shadow: $x $y $blur $color;
+  -moz-text-shadow: $x $y $blur $color;
+  text-shadow: $x $y $blur $color;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $function: linear) {
+  -webkit-transition: $property $duration  $function;
+  -moz-transition: $property $duration  $function;
+  -o-transition: $property $duration  $function;
+  transition: $property $duration  $function;
+}
+/*
+//-BASE-
+//-opacity-
+.op10 {@include opacity(1);}
+.op9 {@include opacity(0.9);}
+.op8 {@include opacity(0.8);}
+.op7 {@include opacity(0.7);}
+.op6 {@include opacity(0.6);}
+.op5 {@include opacity();}
+.op4 {@include opacity(0.4);}
+.op3 {@include opacity(0.3);}
+.op2 {@include opacity(0.2);}
+.op1 {@include opacity(0.1);}
+.op0 {@include opacity(0);}
+//-text-decoration-
+a.nline {text-decoration: none;}
+a.nline:hover {text-decoration: none;}
+a.nline01 {text-decoration: none;}
+a.nline01:hover {text-decoration: underline;}
+a.nline10 {text-decoration: underline;}
+a.nline10:hover {text-decoration: none;}
+//-line-height-
+.lh1 {line-height: 1;}
+.lh1i25 {line-height: 1.25;}
+.lh1i5 {line-height: 1.5;}
+.lh2 {line-height: 2;}
+//-letter-spacing-
+.ls0 {letter-spacing: 0;}
+.zs1 {letter-spacing: 1px;}
+.ls1i5 {letter-spacing: 1.5px;}
+.ls2 {letter-spacing: 2px;}
+.ls3 {letter-spacing: 3px;}
+.ls4 {letter-spacing: 4px;}
+//-font-
+.fs12 {font-size: .75em;}
+.fs14 {font-size: 0.875em;}
+.fs16 {font-size: 1em;}
+.fs18 {font-size: 1.125em;}
+.fs20 {font-size: 1.25em;}
+.fs24 {font-size: 1.5em;}
+.fs26 {font-size: 1.625em;}
+.fs28 {font-size: 1.75em;}
+.fs32 {font-size: 2em;}
+.fs34 {font-size: 2.125em;}
+.fs36 {font-size: 2.25em;}
+.fs40 {font-size: 2.5em;}
+.fs48 {font-size: 3em;}
+.fs64 {font-size: 4em;}
+.fs80 {font-size: 5em;}
+.fs96 {font-size: 6em;}
+//-padding-
+.pt-15, py15{padding-top: 15px;}
+.pb-15, py15{padding-bottom: 15px;}
+
+
+//-INTERFASE-
+
+//Checkboxes styles
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"]+label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    font: 1em/1.25em 'fontr', Arial, sans-serif;
+    color: #333;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+input[type="checkbox"]+label:last-child {
+    margin-bottom: 1em;
+}
+input[type="checkbox"]+label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $color1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include opacity(0.6);
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+}
+input[type="checkbox"]:checked+label:before {
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    @include border-radius(0);
+    @include opacity(1);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+//Radio styles
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]+label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    font: 1em/1.25em 'fontr', Arial, sans-serif;
+    color: $color1;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+input[type="radio"]+label:last-child {
+    margin-bottom: 1em;
+}
+input[type="radio"]+label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $color1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include border-radius(10px);
+    @include opacity(0.6);
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+}
+input[type="radio"]:checked+label:before {
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    @include border-radius(0);
+    @include opacity(1);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+//-Scrollbar-
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}*/

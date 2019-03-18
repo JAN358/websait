@@ -1,0 +1,50 @@
+@import 'variables';
+
+@font-face {
+  font-family: 'Ekibastuz-light';
+  font-style: normal;
+  font-weight: 200;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/als_ekibastuz_light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Ekibastuz';
+  font-style: normal;
+  font-weight: 400;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/als_ekibastuz_regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Ekibastuz-bold';
+  font-style: normal;
+  font-weight: 600;
+  font-displa: $fa-font-display;
+  src: url('#{$fa-font-path}/als_ekibastuz_bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Ekibastuz-heavy';
+  font-style: normal;
+  font-weight: 900;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/als_ekibastuz_heavy.woff') format('woff');
+}
+
+.font-l{
+	font-family: 'Ekibastuz-light';
+}
+
+.font-r{
+	font-family: 'Ekibastuz';
+}
+
+.font-b{
+	font-family: 'Ekibastuz-bold';
+}
+
+.font-h{
+	font-family: 'Ekibastuz-heavy';
+}
+

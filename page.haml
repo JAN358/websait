@@ -1,0 +1,37 @@
+﻿!!!
+%html.no-js{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title WC for Sites
+    %link{:href => "css/app.css", :rel => "stylesheet"}/
+  %body.charitable
+    .wrapper.page
+      .bg
+      %header.header
+        .grid-container
+          .grid-x.grid-padding-x
+            .small-24.large-5.cell
+              .header__logo.logo
+                %a{:href => "index.html"}
+                  %img{:src => "media/logo.svg"}
+            .small-12.large-14.cell
+              .header__lozung.lozung
+                .grid-x.grid-padding-x
+                  .small-24.medium-20.cell
+                    МИР
+                    %br
+                  .small-24.medium-24.cell
+                    вашему
+                    %br
+                  .small-24.medium-24.cell
+                    дому
+            .small-12.large-5.cell
+              .basket.header__basket
+                Корзина
+      %section.section1
+        .grid-container
+          .grid-x.grid-padding-x.form-login
+            .small-24.medium-24.large-24.cell
+    %script{:src => "js/app.js"}

@@ -1,0 +1,86 @@
+.bg{
+	height: 100%;
+    background-image: url(../media/fon.svg);
+    background-position: top center;
+    position: fixed;
+    width: 100%;
+}
+.button, input[type="text"], input[type="email"]{
+	@include border-radius(4px);
+}
+.button{
+	background-color: $color1;
+}
+
+header{
+	text-align: center;
+	padding:10px;
+}
+.section1{
+	z-index: 1;
+    padding: 70px 0;
+    position: relative;
+    @include breakpoint(small) {
+	  padding: 40px 0;
+	}
+	@include breakpoint(medium) {
+	  padding: 60px 0;
+	}
+	@include breakpoint(large) {
+	  padding: 70px 0;
+	}
+}
+
+.header__logo{
+	text-align: center;
+	padding:10px;
+	img{
+		position: relative;
+		left:-10px;
+		@include breakpoint(small) {
+		  width: 250px;
+		}
+		@include breakpoint(large) {
+		  width: 500px;
+		}
+
+	}
+}
+.page{
+	.header__logo{
+		img{
+			top: -20px;
+		}
+	}
+}
+.header__lozung{
+	font-family: pictograph;
+	text-align: center;
+	color: $color1;
+	line-height: .7;
+	@include flex();
+	@include flex-align(center, center);
+	@include breakpoint(small) {
+	  font-size: 70px;
+	}
+	@include breakpoint(medium) {
+	  font-size: 86px;
+	}
+	@include breakpoint(large) {
+	  font-size: 96px;
+	}
+}
+.page{
+	.header__lozung{
+		height: 100%;
+		@include breakpoint(small) {
+		  font-size: 54px;
+		}
+		@include breakpoint(medium) {
+		  font-size: 64px;
+		}
+		@include breakpoint(large) {
+		  font-size: 70px;
+		}
+	}
+}
